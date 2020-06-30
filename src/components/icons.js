@@ -12,3 +12,19 @@ export const Close = ({t}) => {
             strokeWidth="1"/>
     </svg>
 }
+
+export const AccordionToggle = () => {
+    return (
+        <svg
+            role="img"
+            width="22"
+            height="12"
+            viewPort="0 0 22 12"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <line x1="11" y1="11" x2="22" y2="1" strokeWidth="1" />
+            <line x1="1" y1="1" x2="11" y2="11" strokeWidth="1" />
+        </svg>
+    );
+};

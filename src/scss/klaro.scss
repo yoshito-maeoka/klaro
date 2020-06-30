@@ -213,10 +213,33 @@ $green3: #01440C;
                             position: absolute;
                             left: 0;
                         }
+                        .cm-app-label {
+                            line-height: 2.0em;
+                        }
+                        .accordion-toggle {
+                            cursor: pointer;
+                            position: absolute;
+                            right: 0;
+
+                            display: inline-block;
+                            -webkit-transition: .4s;
+                            transition: .4s;
+
+                            &.show {
+                                transform: rotate(90deg);
+                                -webkit-transition: .4s;
+                                transition: .4s;
+                            }
+                            &.hide {
+                                right: 0;
+                            }
+                        }
                         p {
                             margin-top: 0;
                         }
-
+                        .hidden .cm-app-description {
+                            display: none;
+                        }
                         p.purposes {
                             font-size: 0.8em;
                             color: $font-color-dark-deemphasized;

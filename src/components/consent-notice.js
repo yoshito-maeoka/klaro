@@ -86,8 +86,10 @@ export default class ConsentNotice extends React.Component {
             return <ConsentModal t={t} confirming={confirming} config={config} hide={hideModal} declineAndHide={this.declineAndHide} saveAndHide={this.saveAndHide} acceptAndHide={this.acceptAndHide} manager={manager} />
         return <div className={`cookie-notice ${!noticeIsVisible ? 'cookie-notice-hidden' : ''}`}>
             <div className="cn-body">
-                <p>
-                    {t(['consentNotice', 'description'], {purposes: <strong>{purposesText}</strong>})}
+                <h1 className="title">{t(['consentNotice', 'title'])}</h1>
+                <p dangerouslySetInnerHTML={{
+                    __html: t(['consentNotice', 'description'], { purposes: <strong>{purposesText}</strong> })
+                }} >
                 </p>
                 {changesText}
                 <p className="cn-ok">

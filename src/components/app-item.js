@@ -1,6 +1,14 @@
 import React from 'react'
+import { AccordionToggle } from './icons';
 
 export default class AppItem extends React.Component {
+    state = {
+        show: false
+    }
+
+    toggle = () => {
+        this.setState({ show: !this.state.show });
+    }
 
     render(){
         const {checked, onToggle, name, title, description, t} = this.props
@@ -10,6 +18,7 @@ export default class AppItem extends React.Component {
         const onChange = (e) => {
             onToggle(e.target.checked)
         }
+
         const id = `app-item-${name}`
         const purposesText = purposes.map((purpose) => t(['purposes', purpose])).join(", ")
         const optOutText = optOut ? <span className="cm-opt-out" title={t(['app', 'optOut', 'description'])}>{t(['app', 'optOut', 'title'])}</span> : ''
@@ -27,8 +36,13 @@ export default class AppItem extends React.Component {
                     <div className="slider round active"></div>
                 </span>
             </label>
-            <div id={`${id}-description`}>
-                <p className="cm-app-description">{description || t([name, 'description'])}</p>
+            <span className={"accordion-toggle " + (this.state.show ? 'show' : 'hide')} onClick={this.toggle}>
+                <AccordionToggle />
+            </span>
+            <div id={`${id}-description`} className={this.state.show ? 'visible': 'hidden' }>
+                <p className="cm-app-description" dangerouslySetInnerHTML={{
+                    __html: description || t([name, 'description']) }} >
+                </p>
                 {purposesContent}
             </div>
         </div>

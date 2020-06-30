@@ -48,9 +48,8 @@ export default class ConsentModal extends React.Component {
                 <div className="cm-header">
                     {closeLink}
                     <h1 className="title">{t(['consentModal', 'title'])}</h1>
-                    <p>
-                        {t(['consentModal','description'])} &nbsp;
-                        {t(['consentModal','privacyPolicy','text'], {privacyPolicy : ppLink})}
+                    <p className="cm-app-description" dangerouslySetInnerHTML={{
+                        __html: t(['consentModal', 'description']) }} >
                     </p>
                 </div>
                 <div className="cm-body">
