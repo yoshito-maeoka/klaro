@@ -1,3 +1,17 @@
+# about this fork
+
+we extend this module according to our requirement like that:
+* add accordion toggle on cookie-modal
+* allow html tag inside following options
+* * consentModal.description
+* * consentNotice.description
+* * <appName>.description
+* add options
+* * consentNotice.title
+* remove options
+* * consentModal.privacyPolicy (now we can write in consentModal.description)
+
+
 # Klaro! A Simple Consent Manager
 
 Klaro [klɛro] is a simple consent manager that helps you to be transparent about the third-party applications on your website. It is designed to be extremely simple, intuitive and easy to use while allowing you to be compliant with all relevant regulations (notably GDPR and ePrivacy).
