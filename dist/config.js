@@ -44,6 +44,9 @@ var klaroConfig = {
     // replace "decline" with cookie manager modal
     hideDeclineAll: false,
 
+    // hide "learnMore" link
+    hideLearnMode: false,
+
     // You can define the UI language directly here. If undefined, Klaro will
     // use the value given in the global "lang" variable. If that does
     // not exist, it will use the value given in the "lang" attribute of your
@@ -220,6 +223,9 @@ var klaroConfig = {
                 // is not the current domain. If you do not set these values
                 // properly, the cookie can't be deleted by Klaro
                 // (there is no way to access the path or domain of a cookie in JS)
+                // Notice that it is not possible to delete cookies that were set
+                // on a third-party domain! See the note at mdn:
+                // https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie#new-cookie_domain
                 [/^_pk_.*$/, '/', 'klaro.kiprotect.com'], //for the production version
                 [/^_pk_.*$/, '/', 'localhost'], //for the local version
                 'piwik_ignore',
