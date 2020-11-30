@@ -149,7 +149,14 @@ export default class ConsentManager {
     }
 
     saveConsents(){
-        const v = encodeURIComponent(JSON.stringify(this.consents))
+        const consents = this.consents;
+        // overwrite with required
+        this.config.apps.map(a => {
+            if (a.required) {
+                this.consents[a.name] = true;
+            }
+        });
+        const v = encodeURIComponent(JSON.stringify(consents))
         this.store.set(v);
         this.confirmed = true
         this.changed = false
@@ -157,6 +164,8 @@ export default class ConsentManager {
     }
 
     applyConsents(){
+        console.trace();
+        console.log(this.config, this.states, this.confirmed, this.consents);
         for(let i=0;i<this.config.apps.length;i++){
             const app = this.config.apps[i]
             const state = this.states[app.name]
